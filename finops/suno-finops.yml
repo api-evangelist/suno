@@ -5,7 +5,7 @@ provider: Suno
 providerId: suno
 created: '2026-05-08'
 modified: '2026-05-08'
-reconciled: false
+reconciled: partial
 tags:
 - AI
 - Music Generation
@@ -15,10 +15,14 @@ tags:
 - FinOps
 - Cost Management
 - FOCUS
-description: FOCUS-aligned FinOps placeholder for Suno. Pipeline will replace with real billing details.
-notes: Initial scaffold — billing model has not yet been reconciled.
+description: >-
+  FOCUS-aligned FinOps view of Suno. Suno does not bill API usage directly. Costs flow
+  through whichever third-party aggregator the integrator selects (publisher and invoice
+  issuer = aggregator). Consumer Suno subscription costs are non-API.
+notes: Treat aggregator as the publisher in FOCUS columns; consumer Pro/Premier credits cannot be allocated to API workloads.
 sources:
 - https://suno.com/
+- https://docs.sunoapi.org/
 - https://focus.finops.org/focus-specification/v1-3/
 alignedWith:
   framework: FinOps Foundation Framework
@@ -26,10 +30,10 @@ alignedWith:
   dataSpec: FOCUS
   dataSpecVersion: '1.3'
   dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
-publisherName: Suno
+publisherName: Aggregator (varies)
 serviceCategory: AI
 billingModel:
-  pricingCategory: To Be Reconciled
+  pricingCategory: Aggregator-Mediated Per-Generation Usage
   billingFrequency: Monthly
   billingCurrency: USD
   chargeCategories:
@@ -37,30 +41,30 @@ billingModel:
   - Purchase
   - Adjustment
 focusColumns:
-  ServiceName: Suno
+  ServiceName: Suno Music Generation
   ServiceCategory: AI
   ProviderName: Suno
-  PublisherName: Suno
-  InvoiceIssuerName: Suno
+  PublisherName: Aggregator (e.g. sunoapi.org, AIMLAPI)
+  InvoiceIssuerName: Aggregator
   BillingCurrency: USD
   ChargeCategory: Usage
 meters:
-- name: api_usage
-  description: Catch-all meter pending reconciliation.
-  unit: varies
+- name: song_generations
+  description: Suno song generations through aggregator.
+  unit: song
   aggregation: sum
   dimensions:
   - account
-  - resource
+  - aggregator
 principles:
 - name: Visibility
-  description: Pull provider invoices or usage exports until a self-serve usage feed is documented.
+  description: Pull invoice from aggregator; correlate to song generation jobs.
 - name: Allocation
-  description: Tag invoice line items to consuming business units in your FinOps store.
+  description: Tag aggregator API keys per consuming product.
 - name: Optimization
-  description: Levers depend on the provider's billing model; review at renewal once reconciled.
+  description: Aggregator selection is the largest cost lever; re-evaluate periodically.
 - name: Accountability
-  description: Assign a contract owner to review billing against negotiated terms.
+  description: Assign owner to manage aggregator account and contractual / TOS risk.
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

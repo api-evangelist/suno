@@ -3,7 +3,11 @@ url: https://raw.githubusercontent.com/api-evangelist/suno/refs/heads/main/apis.
 name: Suno
 x-type: company
 description: >-
-  Suno is an AI music generation platform creating full songs (vocals + instrumentation) from natural language prompts. APIs available via aggregators.
+  Suno is an AI music generation platform creating full songs (vocals + instrumentation)
+  from natural language prompts. As of May 2026 Suno does NOT publish a sanctioned
+  developer API. Public integrations are served by third-party aggregators (sunoapi.org,
+  AIMLAPI, etc.) that wrap reverse-engineered access; some operate with formal SLAs but
+  carry legal/operational risk and are not endorsed by Suno.
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
   - AI
@@ -14,7 +18,25 @@ tags:
 created: '2026-05-08'
 modified: '2026-05-08'
 specificationVersion: '0.19'
-apis: []
+apis:
+  - aid: suno:third-party
+    name: Suno via Third-Party Aggregators
+    description: >-
+      Suno music generation is accessible through third-party aggregator APIs (e.g.
+      sunoapi.org, AIMLAPI). These are not official Suno products and are not supported by
+      Suno. Direct enterprise/partner API access is currently invitation-only.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://suno.com/
+    baseURL: https://docs.sunoapi.org/
+    tags:
+      - Music Generation
+      - Aggregator
+      - Unofficial
+    properties:
+      - type: Documentation
+        url: https://docs.sunoapi.org/
+      - type: ProviderWebsite
+        url: https://suno.com/
 common:
   - type: Website
     url: https://suno.com/

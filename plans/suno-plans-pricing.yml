@@ -13,29 +13,46 @@ tags:
 - Generative
 - TTS
 - Plans
-description: Placeholder plans/pricing artifact for Suno. Replace with real published pricing once
-  the pipeline researches the provider's plans page.
-notes: Initial scaffold — plans/pricing have not yet been reconciled.
+description: >-
+  Suno does not publish an official developer API rate sheet as of May 2026. Production API
+  access is provided through third-party aggregators with their own per-call pricing.
+  Suno's consumer subscription (Free / Pro / Premier) gates web app credits and is not
+  available for API access.
+notes: Suno offers no public sanctioned API; pricing is set per-aggregator. Verify aggregator's terms before commercial use.
 sources:
 - https://suno.com/
+- https://docs.sunoapi.org/
 plans:
-- id: suno-default
-  name: To Be Reconciled
-  type: enterprise
-  description: Initial scaffold; replace with provider plan tiers once pricing is reconciled.
+- id: suno-aggregator
+  name: Aggregator-Mediated API
+  type: usage
+  description: Pricing varies by aggregator (sunoapi.org, AIMLAPI, etc.); typically per-song generation.
   entries:
-  - label: API Access
-    name: api_access
-    type: flat
-    metric: varies
+  - label: Per Song Generation
+    name: per_song
+    type: per_unit
+    metric: song
     limit: -1
     timeFrame: usage
     geo: global
     unit: 1
-    price: see https://suno.com/
+    price: see chosen aggregator
     userMultiplied: false
-  elements:
-  - name: Pending Reconciliation
+- id: suno-consumer
+  name: Suno Consumer Subscription
+  type: subscription
+  description: Web-only consumer plans (Free, Pro, Premier) using credits. Not API.
+  entries:
+  - label: Web Subscription
+    name: web_subscription
+    type: flat
+    metric: month
+    limit: 1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: see suno.com pricing
+    userMultiplied: false
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

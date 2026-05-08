@@ -15,21 +15,27 @@ tags:
 - Rate Limiting
 - Quotas
 - Throttling
-description: Placeholder rate-limit artifact for Suno. Replace with real limits once researched.
-notes: Initial scaffold — limits have not yet been reconciled.
+description: >-
+  Suno does not publish API rate limits because it does not offer a sanctioned public API.
+  Aggregator providers manage account pools and concurrency on Suno's behalf and expose
+  their own RPS/concurrency caps.
+notes: Verify aggregator-specific rate limits before integrating.
 sources:
 - https://suno.com/
+- https://docs.sunoapi.org/
 responseCodes:
   throttled: 429
 limits:
-- name: Default
+- name: Aggregator Limits
   scope: account
-  metric: varies
-  limit: see provider documentation
-  notes: Pending reconciliation.
+  metric: requests
+  limit: see chosen aggregator
+  notes: Suno itself does not document API rate limits.
 policies:
 - name: Backoff Strategy
   description: Clients should implement exponential backoff with jitter and honor any Retry-After header.
+- name: Risk Awareness
+  description: Aggregators wrap reverse-engineered Suno access; service availability depends on Suno's tolerance.
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
