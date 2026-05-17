@@ -1,7 +1,7 @@
 aid: suno
 url: https://raw.githubusercontent.com/api-evangelist/suno/refs/heads/main/apis.yml
 name: Suno
-x-type: company
+kind: company
 description: >-
   Suno is an AI music generation platform creating full songs (vocals + instrumentation)
   from natural language prompts. As of May 2026 Suno does NOT publish a sanctioned
