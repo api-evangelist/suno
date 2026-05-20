@@ -38,6 +38,10 @@ apis:
       - type: ProviderWebsite
         url: https://suno.com/
 common:
+  - type: GitHubOrganization
+    url: https://github.com/suno-ai
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/suno-ai
   - type: Website
     url: https://suno.com/
   - type: Plans
