@@ -8,7 +8,7 @@ description: >-
   developer API. Public integrations are served by third-party aggregators (sunoapi.org,
   AIMLAPI, etc.) that wrap reverse-engineered access; some operate with formal SLAs but
   carry legal/operational risk and are not endorsed by Suno.
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - AI
   - Music Generation
@@ -25,7 +25,7 @@ apis:
       Suno music generation is accessible through third-party aggregator APIs (e.g.
       sunoapi.org, AIMLAPI). These are not official Suno products and are not supported by
       Suno. Direct enterprise/partner API access is currently invitation-only.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://suno.com/
     baseURL: https://docs.sunoapi.org/
     tags:
