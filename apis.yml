@@ -50,7 +50,7 @@ common:
     url: rate-limits/suno-rate-limits.yml
   - type: FinOps
     url: finops/suno-finops.yml
-  - type: LLMsTxt
+  - type: LlmsText
     url: https://docs.sunoapi.org/llms.txt
 maintainers:
   - FN: Kin Lane
