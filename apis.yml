@@ -38,6 +38,10 @@ apis:
       - type: ProviderWebsite
         url: https://suno.com/
 common:
+  - type: DomainSecurity
+    url: security/suno-domain-security.yml
+  - type: Authentication
+    url: authentication/suno-authentication.yml
   - type: GitHubOrganization
     url: https://github.com/suno-ai
   - type: LinkedIn
@@ -52,6 +56,8 @@ common:
     url: finops/suno-finops.yml
   - type: LlmsText
     url: https://docs.sunoapi.org/llms.txt
+  - url: https://blog.suno.com/
+    type: Blog
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
