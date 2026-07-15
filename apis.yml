@@ -38,6 +38,8 @@ apis:
       - type: ProviderWebsite
         url: https://suno.com/
 common:
+  - type: AgenticAccess
+    url: agentic-access/suno-agentic-access.yml
   - type: DomainSecurity
     url: security/suno-domain-security.yml
   - type: Authentication
