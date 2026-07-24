@@ -1,0 +1,71 @@
+openapi: 3.1.0
+info:
+  title: Suno API (sunoapi.org) Lyrics API
+  description: Third-party Suno API gateway (sunoapi.org) for AI music, lyrics, and audio generation. Suno itself does not publish a sanctioned developer API as of May 2026; this OpenAPI describes the public-facing endpoints documented at https://docs.sunoapi.org. Endpoints are asynchronous and rely on a callBackUrl for completion notifications, with task status retrievable via record-info endpoints.
+  version: 1.0.0
+  contact:
+    name: sunoapi.org docs
+    url: https://docs.sunoapi.org/
+servers:
+- url: https://api.sunoapi.org
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: Lyrics
+  description: Lyrics generation endpoints
+paths:
+  /api/v1/lyrics:
+    post:
+      tags:
+      - Lyrics
+      summary: Generate lyrics
+      description: Submit a lyrics generation task. Returns a taskId; generated lyric variations are delivered to callBackUrl. Generated content persists for 15 days.
+      operationId: generateLyrics
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GenerateLyricsRequest'
+      responses:
+        '200':
+          description: Task accepted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskResponse'
+components:
+  schemas:
+    GenerateLyricsRequest:
+      type: object
+      required:
+      - prompt
+      - callBackUrl
+      properties:
+        prompt:
+          type: string
+          maxLength: 200
+          description: Detailed description of desired lyrics.
+        callBackUrl:
+          type: string
+          format: uri
+    TaskResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 200
+        msg:
+          type: string
+          example: success
+        data:
+          type: object
+          properties:
+            taskId:
+              type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: API Key
