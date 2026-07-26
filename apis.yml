@@ -8,7 +8,20 @@ description: >-
   developer API. Public integrations are served by third-party aggregators (sunoapi.org,
   AIMLAPI, etc.) that wrap reverse-engineered access; some operate with formal SLAs but
   carry legal/operational risk and are not endorsed by Suno.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: paid
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Paid · Self-serve signup
+  confidence: high
+  source:
+    - plans
+    - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/suno.png
 tags:
   - AI
   - Music Generation
@@ -16,27 +29,29 @@ tags:
   - Generative
   - TTS
 created: '2026-05-08'
-modified: '2026-05-08'
+modified: '2026-07-25'
 specificationVersion: '0.19'
 apis:
-  - aid: suno:third-party
-    name: Suno via Third-Party Aggregators
-    description: >-
-      Suno music generation is accessible through third-party aggregator APIs (e.g.
-      sunoapi.org, AIMLAPI). These are not official Suno products and are not supported by
-      Suno. Direct enterprise/partner API access is currently invitation-only.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  - aid: suno:suno-lyrics-api
+    name: Suno Lyrics API
+    description: Lyrics generation endpoints
     humanURL: https://suno.com/
     baseURL: https://docs.sunoapi.org/
     tags:
-      - Music Generation
-      - Aggregator
-      - Unofficial
+      - Lyrics
     properties:
-      - type: Documentation
-        url: https://docs.sunoapi.org/
-      - type: ProviderWebsite
-        url: https://suno.com/
+      - type: OpenAPI
+        url: openapi/suno-lyrics-api-openapi.yml
+  - aid: suno:suno-music-api
+    name: Suno Music API
+    description: Music generation endpoints
+    humanURL: https://suno.com/
+    baseURL: https://docs.sunoapi.org/
+    tags:
+      - Music
+    properties:
+      - type: OpenAPI
+        url: openapi/suno-music-api-openapi.yml
 common:
   - type: AgenticAccess
     url: agentic-access/suno-agentic-access.yml

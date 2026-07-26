@@ -19,12 +19,6 @@ Suno is an AI music generation platform creating full songs (vocals + instrument
 
 ## APIs
 
-### Suno via Third-Party Aggregators
-
-Suno music generation is accessible through third-party aggregator APIs (e.g. sunoapi.org, AIMLAPI). These are not official Suno products and are not supported by Suno. Direct enterprise/partner API access is currently invitation-only.
-
-- **Human URL:** [https://suno.com/](https://suno.com/)
-- **Base URL:** `https://docs.sunoapi.org/`
 
 #### Tags
 
