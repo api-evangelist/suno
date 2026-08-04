@@ -1,0 +1,16 @@
+{
+  "provider": "suno",
+  "sources": [
+    "suno-lyrics-api-openapi.yml",
+    "suno-music-api-openapi.yml"
+  ],
+  "outputs": [
+    "suno-lyrics-api-openapi.yml",
+    "suno-music-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
