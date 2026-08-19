@@ -1,0 +1,240 @@
+{
+  "item": [
+    {
+      "id": "b3aef883-b823-4a1a-924f-d5a2793ce041",
+      "name": "Music",
+      "description": {
+        "content": "Music generation endpoints",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8d019062-6714-499f-b495-4e872d00c2a7",
+          "name": "Generate music",
+          "request": {
+            "name": "Generate music",
+            "description": {
+              "content": "Creates a music generation task. Returns a taskId; results are delivered via the callBackUrl when ready (stream URLs in ~30-40s, downloadable URLs in 2-3 minutes). Exactly two songs are returned per successful task.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "generate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customMode\": \"<boolean>\",\n  \"instrumental\": \"<boolean>\",\n  \"callBackUrl\": \"<uri>\",\n  \"model\": \"<string>\",\n  \"prompt\": \"<string>\",\n  \"style\": \"<string>\",\n  \"title\": \"<string>\",\n  \"personaId\": \"<string>\",\n  \"personaModel\": \"<string>\",\n  \"negativeTags\": \"<string>\",\n  \"vocalGender\": \"<string>\",\n  \"styleWeight\": \"<number>\",\n  \"weirdnessConstraint\": \"<number>\",\n  \"audioWeight\": \"<number>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "89139a9c-2b3f-4922-9ca0-3a574983cdc9",
+              "name": "Task accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "generate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customMode\": \"<boolean>\",\n  \"instrumental\": \"<boolean>\",\n  \"callBackUrl\": \"<uri>\",\n  \"model\": \"<string>\",\n  \"prompt\": \"<string>\",\n  \"style\": \"<string>\",\n  \"title\": \"<string>\",\n  \"personaId\": \"<string>\",\n  \"personaModel\": \"<string>\",\n  \"negativeTags\": \"<string>\",\n  \"vocalGender\": \"<string>\",\n  \"styleWeight\": \"<number>\",\n  \"weirdnessConstraint\": \"<number>\",\n  \"audioWeight\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 200,\n  \"msg\": \"success\",\n  \"data\": {\n    \"taskId\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7adc2771-ed1b-4f67-bd73-c64f71ee4002",
+          "name": "Get music generation details",
+          "request": {
+            "name": "Get music generation details",
+            "description": {
+              "content": "Retrieve the status and audio results for a music generation task.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "generate",
+                "record-info"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "taskId",
+                  "value": "<string>",
+                  "description": "(Required) The task ID returned from Generate Music or Extend Music."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8784497b-cc80-457f-b789-8b25d77660fb",
+              "name": "Task details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "generate",
+                    "record-info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "taskId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7898,\n  \"msg\": \"string\",\n  \"data\": {\n    \"taskId\": \"string\",\n    \"parentMusicId\": \"string\",\n    \"param\": \"string\",\n    \"response\": {\n      \"taskId\": \"string\",\n      \"sunoData\": [\n        {\n          \"id\": \"string\",\n          \"audioUrl\": \"http://LQlycnJekBtxfHtbUWDYdUJTYbLYPP.vaDfZywtlD7lmA97lFkQwYbtdr,UNuapVRP\",\n          \"streamAudioUrl\": \"http://azhlqrvaPpns.mtxyYCvQvvbnRcdox,5D1k\",\n          \"imageUrl\": \"https://mVJCIjVa.gmhpW56htX,JSCdu\",\n          \"prompt\": \"string\",\n          \"modelName\": \"string\",\n          \"title\": \"string\",\n          \"tags\": \"string\",\n          \"createTime\": \"1957-06-25T02:34:40.103Z\",\n          \"duration\": 6055.992101289148\n        },\n        {\n          \"id\": \"string\",\n          \"audioUrl\": \"http://qBZBfXzBtG.tpZg1uFloG2k4j1OAoJMInA7ebhPgtteFOsgGY-Hx3GXgb1MElZi+km5nFs70fl5nyMn8jN\",\n          \"streamAudioUrl\": \"https://TANZnhwXQJLSZTZKvojWfr.srpGH1cbDHDHmxmoqymj24+ntEPMqRQ2id7NJ5gZpEIgAb9shypx5DNLJMWUkc\",\n          \"imageUrl\": \"http://ThcKmHfRavkarosUWmGbWUUG.skAj1mY3xQRCjxKBYJu.HpjgIFvlN5gQCibzbdRlTyLh0bA00mALiJ\",\n          \"prompt\": \"string\",\n          \"modelName\": \"string\",\n          \"title\": \"string\",\n          \"tags\": \"string\",\n          \"createTime\": \"1975-06-03T17:49:18.615Z\",\n          \"duration\": 1212.077305953162\n        }\n      ]\n    },\n    \"status\": \"SUCCESS\",\n    \"type\": \"chirp-v4\",\n    \"operationType\": \"generate\",\n    \"errorCode\": 7345,\n    \"errorMessage\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sunoapi.org",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "bdf26201-1610-48f2-83ba-cb083a685525",
+    "name": "Suno API (sunoapi.org) Lyrics Music API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Third-party Suno API gateway (sunoapi.org) for AI music, lyrics, and audio generation. Suno itself does not publish a sanctioned developer API as of May 2026; this OpenAPI describes the public-facing endpoints documented at https://docs.sunoapi.org. Endpoints are asynchronous and rely on a callBackUrl for completion notifications, with task status retrievable via record-info endpoints.\n\nContact Support:\n Name: sunoapi.org docs",
+      "type": "text/plain"
+    }
+  }
+}

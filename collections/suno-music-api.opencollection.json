@@ -1,0 +1,58 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Suno API (sunoapi.org) Lyrics Music API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Music",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Generate music",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sunoapi.org/api/v1/generate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a music generation task. Returns a taskId; results are delivered via the callBackUrl when ready (stream URLs in ~30-40s, downloadable URLs in 2-3 minutes). Exactly two songs are returned per successful task."
+        },
+        {
+          "info": {
+            "name": "Get music generation details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sunoapi.org/api/v1/generate/record-info",
+            "params": [
+              {
+                "name": "taskId",
+                "value": "",
+                "type": "query",
+                "description": "The task ID returned from Generate Music or Extend Music."
+              }
+            ]
+          },
+          "docs": "Retrieve the status and audio results for a music generation task."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

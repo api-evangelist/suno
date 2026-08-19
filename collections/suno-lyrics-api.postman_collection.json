@@ -1,0 +1,144 @@
+{
+  "item": [
+    {
+      "id": "92d55be1-e544-48d6-8732-5be38be20cba",
+      "name": "Lyrics",
+      "description": {
+        "content": "Lyrics generation endpoints",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e913447f-f547-43bc-bba9-3b420c89ab4c",
+          "name": "Generate lyrics",
+          "request": {
+            "name": "Generate lyrics",
+            "description": {
+              "content": "Submit a lyrics generation task. Returns a taskId; generated lyric variations are delivered to callBackUrl. Generated content persists for 15 days.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "lyrics"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"prompt\": \"<string>\",\n  \"callBackUrl\": \"<uri>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3e22e954-9575-4395-90a3-5ae54d96ea5e",
+              "name": "Task accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "lyrics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"prompt\": \"<string>\",\n  \"callBackUrl\": \"<uri>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 200,\n  \"msg\": \"success\",\n  \"data\": {\n    \"taskId\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sunoapi.org",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ff8c0adc-6925-4e76-b1b7-991361811081",
+    "name": "Suno API (sunoapi.org) Lyrics API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Third-party Suno API gateway (sunoapi.org) for AI music, lyrics, and audio generation. Suno itself does not publish a sanctioned developer API as of May 2026; this OpenAPI describes the public-facing endpoints documented at https://docs.sunoapi.org. Endpoints are asynchronous and rely on a callBackUrl for completion notifications, with task status retrievable via record-info endpoints.\n\nContact Support:\n Name: sunoapi.org docs",
+      "type": "text/plain"
+    }
+  }
+}

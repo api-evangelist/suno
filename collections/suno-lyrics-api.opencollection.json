@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Suno API (sunoapi.org) Lyrics API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Lyrics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Generate lyrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sunoapi.org/api/v1/lyrics",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit a lyrics generation task. Returns a taskId; generated lyric variations are delivered to callBackUrl. Generated content persists for 15 days."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
