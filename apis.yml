@@ -6,6 +6,18 @@ description: Suno is an AI music generation platform creating full songs (vocals
   natural language prompts. As of May 2026 Suno does NOT publish a sanctioned developer API. Public integrations
   are served by third-party aggregators (sunoapi.org, AIMLAPI, etc.) that wrap reverse-engineered access;
   some operate with formal SLAs but carry legal/operational risk and are not endorsed by Suno.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: paid
   onboarding: self-serve
