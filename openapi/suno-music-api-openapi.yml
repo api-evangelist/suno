@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Suno API (sunoapi.org) Lyrics Music API
+  title: Suno API (sunoapi.org) Music API
   description: Third-party Suno API gateway (sunoapi.org) for AI music, lyrics, and audio generation. Suno itself does not publish a sanctioned developer API as of May 2026; this OpenAPI describes the public-facing endpoints documented at https://docs.sunoapi.org. Endpoints are asynchronous and rely on a callBackUrl for completion notifications, with task status retrievable via record-info endpoints.
   version: 1.0.0
   contact:
@@ -112,6 +112,34 @@ components:
             errorMessage:
               type: string
               nullable: true
+    SunoTrack:
+      type: object
+      properties:
+        id:
+          type: string
+        audioUrl:
+          type: string
+          format: uri
+        streamAudioUrl:
+          type: string
+          format: uri
+        imageUrl:
+          type: string
+          format: uri
+        prompt:
+          type: string
+        modelName:
+          type: string
+        title:
+          type: string
+        tags:
+          type: string
+        createTime:
+          type: string
+          format: date-time
+        duration:
+          type: number
+          description: Duration in seconds.
     TaskResponse:
       type: object
       properties:
@@ -165,34 +193,6 @@ components:
           type: number
         audioWeight:
           type: number
-    SunoTrack:
-      type: object
-      properties:
-        id:
-          type: string
-        audioUrl:
-          type: string
-          format: uri
-        streamAudioUrl:
-          type: string
-          format: uri
-        imageUrl:
-          type: string
-          format: uri
-        prompt:
-          type: string
-        modelName:
-          type: string
-        title:
-          type: string
-        tags:
-          type: string
-        createTime:
-          type: string
-          format: date-time
-        duration:
-          type: number
-          description: Duration in seconds.
   securitySchemes:
     bearerAuth:
       type: http
