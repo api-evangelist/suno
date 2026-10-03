@@ -37,19 +37,6 @@ paths:
                 $ref: '#/components/schemas/TaskResponse'
 components:
   schemas:
-    GenerateLyricsRequest:
-      type: object
-      required:
-      - prompt
-      - callBackUrl
-      properties:
-        prompt:
-          type: string
-          maxLength: 200
-          description: Detailed description of desired lyrics.
-        callBackUrl:
-          type: string
-          format: uri
     TaskResponse:
       type: object
       properties:
@@ -64,6 +51,19 @@ components:
           properties:
             taskId:
               type: string
+    GenerateLyricsRequest:
+      type: object
+      required:
+      - prompt
+      - callBackUrl
+      properties:
+        prompt:
+          type: string
+          maxLength: 200
+          description: Detailed description of desired lyrics.
+        callBackUrl:
+          type: string
+          format: uri
   securitySchemes:
     bearerAuth:
       type: http

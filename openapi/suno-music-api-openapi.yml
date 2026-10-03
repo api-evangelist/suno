@@ -58,34 +58,59 @@ paths:
                 $ref: '#/components/schemas/MusicRecordInfoResponse'
 components:
   schemas:
-    SunoTrack:
+    GenerateMusicRequest:
       type: object
+      required:
+      - customMode
+      - instrumental
+      - callBackUrl
+      - model
       properties:
-        id:
-          type: string
-        audioUrl:
-          type: string
-          format: uri
-        streamAudioUrl:
-          type: string
-          format: uri
-        imageUrl:
+        customMode:
+          type: boolean
+          description: When true, requires style and title. Prompt required if instrumental=false.
+        instrumental:
+          type: boolean
+        callBackUrl:
           type: string
           format: uri
+        model:
+          type: string
+          description: Model identifier (e.g. chirp-v3-5, chirp-v4).
         prompt:
           type: string
-        modelName:
+        style:
           type: string
         title:
           type: string
-        tags:
+        personaId:
           type: string
-        createTime:
+        personaModel:
           type: string
-          format: date-time
-        duration:
+        negativeTags:
+          type: string
+        vocalGender:
+          type: string
+        styleWeight:
           type: number
-          description: Duration in seconds.
+        weirdnessConstraint:
+          type: number
+        audioWeight:
+          type: number
+    TaskResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 200
+        msg:
+          type: string
+          example: success
+        data:
+          type: object
+          properties:
+            taskId:
+              type: string
     MusicRecordInfoResponse:
       type: object
       properties:
@@ -140,59 +165,34 @@ components:
             errorMessage:
               type: string
               nullable: true
-    TaskResponse:
+    SunoTrack:
       type: object
       properties:
-        code:
-          type: integer
-          example: 200
-        msg:
+        id:
           type: string
-          example: success
-        data:
-          type: object
-          properties:
-            taskId:
-              type: string
-    GenerateMusicRequest:
-      type: object
-      required:
-      - customMode
-      - instrumental
-      - callBackUrl
-      - model
-      properties:
-        customMode:
-          type: boolean
-          description: When true, requires style and title. Prompt required if instrumental=false.
-        instrumental:
-          type: boolean
-        callBackUrl:
+        audioUrl:
           type: string
           format: uri
-        model:
+        streamAudioUrl:
           type: string
-          description: Model identifier (e.g. chirp-v3-5, chirp-v4).
+          format: uri
+        imageUrl:
+          type: string
+          format: uri
         prompt:
           type: string
-        style:
+        modelName:
           type: string
         title:
           type: string
-        personaId:
+        tags:
           type: string
-        personaModel:
+        createTime:
           type: string
-        negativeTags:
-          type: string
-        vocalGender:
-          type: string
-        styleWeight:
+          format: date-time
+        duration:
           type: number
-        weirdnessConstraint:
-          type: number
-        audioWeight:
-          type: number
+          description: Duration in seconds.
   securitySchemes:
     bearerAuth:
       type: http
