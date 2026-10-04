@@ -97,6 +97,34 @@ components:
           type: number
         audioWeight:
           type: number
+    SunoTrack:
+      type: object
+      properties:
+        id:
+          type: string
+        audioUrl:
+          type: string
+          format: uri
+        streamAudioUrl:
+          type: string
+          format: uri
+        imageUrl:
+          type: string
+          format: uri
+        prompt:
+          type: string
+        modelName:
+          type: string
+        title:
+          type: string
+        tags:
+          type: string
+        createTime:
+          type: string
+          format: date-time
+        duration:
+          type: number
+          description: Duration in seconds.
     TaskResponse:
       type: object
       properties:
@@ -165,34 +193,6 @@ components:
             errorMessage:
               type: string
               nullable: true
-    SunoTrack:
-      type: object
-      properties:
-        id:
-          type: string
-        audioUrl:
-          type: string
-          format: uri
-        streamAudioUrl:
-          type: string
-          format: uri
-        imageUrl:
-          type: string
-          format: uri
-        prompt:
-          type: string
-        modelName:
-          type: string
-        title:
-          type: string
-        tags:
-          type: string
-        createTime:
-          type: string
-          format: date-time
-        duration:
-          type: number
-          description: Duration in seconds.
   securitySchemes:
     bearerAuth:
       type: http
