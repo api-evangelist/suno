@@ -1,0 +1,26 @@
+edges:
+- partner_name: Hugging Face Hub
+  partner: hugging-face
+  partner_match: framework
+  channel: partner-built
+  direction: partner-built
+  type: coverage
+  relationship: system-coverage
+  evidence: https://huggingface.co/suno
+  coverage_role:
+  - tts
+  framework_signals:
+    packages:
+    - huggingface.co/suno
+    roles:
+    - tts
+    vendor_domain: suno.com
+    hub_org_models_in_top_1000: 2
+    hub_org_downloads: 37944
+  matched_by: verified-domain-table
+  detected_by: sweep-voice-ai.py
+  first_seen: '2026-10-15'
+generated: '2026-10-15'
+method: searched
+checked:
+- https://huggingface.co/models?pipeline_tag=text-to-speech
